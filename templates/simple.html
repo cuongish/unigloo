@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<title>Unigloo Inventory</title>
+<link rel="stylesheet" href='/static/style.css' />
+<body>
+<h1 align="center"><a href='/'>Uniqloo Inventory</a></h1>
+<div id="outer">
+    <div class="inner" align="left"><a href=gloves>
+        <button class=grey style="height:50px;width:100px">Gloves</button>
+    </a></div>
+    <div class="inner" align="center"><a href=facemasks>
+        <button class=grey style="height:50px;width:100px">Facemasks</button>
+    </a></div>
+    <div class="inner" align="right"><a href=beanies>
+        <button class=grey style="height:50px;width:100px">Beanies</button>
+    </a></div>
+</div>
+<div class=page>
+    {% for table in tables %}
+        <h2>{{ titles[loop.index] }}</h2>
+        {{ table|safe }}
+    {% endfor %}
+</div>
+</html>
