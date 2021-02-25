@@ -1,18 +1,26 @@
 from flask import Flask
 from flask import render_template
+from flask_cors import CORS
+from flask_cors import cross_origin
 
 from handler import main
 
 app = Flask(__name__)
 final_dataframes = main()
 
+app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
+
 
 @app.route('/')
+@cross_origin()
 def index():
     return render_template('index.html')
 
 
 @app.route('/gloves', methods=("POST", "GET"))
+@cross_origin()
 def show_gloves_tables():
     data = final_dataframes.gloves
     return render_template('simple.html', tables=[data.to_html(classes='gloves')],
@@ -20,6 +28,7 @@ def show_gloves_tables():
 
 
 @app.route("/beanies", methods=("POST", "GET"))
+@cross_origin()
 def show_beanies_tables():
     data = final_dataframes.beanies
     return render_template('simple.html', tables=[data.to_html(classes='beanies')],
@@ -27,6 +36,7 @@ def show_beanies_tables():
 
 
 @app.route("/facemasks", methods=("POST", "GET"))
+@cross_origin()
 def show_facemasks_tables():
     data = final_dataframes.facemasks
     return render_template('simple.html', tables=[data.to_html(classes='facemasks')],
