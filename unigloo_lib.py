@@ -40,7 +40,7 @@ def get_availability(manufacturer: Text) -> List[Dict[Text, Text]]:
         if type(response) != str:
             break
 
-        time.sleep(2 ** attempts)
+        time.sleep(1 ** attempts)
         attempts = attempts + 1
 
     return response
