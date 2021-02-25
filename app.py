@@ -6,11 +6,9 @@ from flask_cors import cross_origin
 from handler import main
 
 app = Flask(__name__)
-final_dataframes = main()
-
-app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
+final_dataframes = main()
 
 
 @app.route('/')
