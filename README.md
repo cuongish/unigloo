@@ -41,4 +41,4 @@ source uni_venv/bin/activate
 
 ### Deployment
 
-A running solution is hosted on heroku and can be accessed publicly at https://unigloo.herokuapp.com/
+A running solution is hosted on heroku and can be accessed publicly at https://unigloo.onrender.com/
